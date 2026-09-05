@@ -1,0 +1,201 @@
+{
+  "generated_utc": "2026-09-05T18:49:55.837127+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.10.10 | packaged by conda-forge | (main, Mar 24 2023, 20:12:31) [Clang 14.0.6 ]",
+  "overall": "PASS_WITH_SKIPS",
+  "not_a_performance_benchmark": true,
+  "checks": [
+    {
+      "name": "package_links_frontmatter_sources",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "name": "python_unit_tests",
+      "status": "PASS",
+      "command": [
+        "/Users/mnwa/miniforge3/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_bonferroni (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_deterministic_seed (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_duplicate_json_keys (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_exact_gate_boundary_is_conservative (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_insufficient_not_pass (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_invalid_policy (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_invalid_structure (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_invalid_values (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_no_hidden_case_regression (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_pass (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_regression (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_throughput_direction (test_compare_benchmarks.TestPairedAnalysis) ... ok\ntest_uncertain (test_compare_benchmarks.TestPairedAnalysis) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.032s\n\nOK\n"
+    },
+    {
+      "name": "g++_version",
+      "status": "PASS",
+      "command": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_g++_release_build",
+      "status": "PASS",
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "/Users/mnwa/skills/performance-engineering/examples/cpp/test_kernels.cpp",
+        "-o",
+        "/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/test-gpp"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_g++_release_tests",
+      "status": "PASS",
+      "command": [
+        "/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/test-gpp"
+      ],
+      "returncode": 0,
+      "stdout": "executed_byte_kernels=scalar dispatch neon \nguard_page=PASS\nlog_sample_max_abs_error=1.63482e-06\nlog_real_arithmetic_truncation_bound=1.66583e-06\nchecks=2917703\nresult=PASS\n",
+      "stderr": ""
+    },
+    {
+      "name": "clang++_version",
+      "status": "PASS",
+      "command": [
+        "/usr/bin/clang++",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_clang++_release_build",
+      "status": "PASS",
+      "command": [
+        "/usr/bin/clang++",
+        "-std=c++17",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "/Users/mnwa/skills/performance-engineering/examples/cpp/test_kernels.cpp",
+        "-o",
+        "/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/test-clangpp"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_clang++_release_tests",
+      "status": "PASS",
+      "command": [
+        "/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/test-clangpp"
+      ],
+      "returncode": 0,
+      "stdout": "executed_byte_kernels=scalar dispatch neon \nguard_page=PASS\nlog_sample_max_abs_error=1.63482e-06\nlog_real_arithmetic_truncation_bound=1.66583e-06\nchecks=2917703\nresult=PASS\n",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_sanitizer_build",
+      "status": "PASS",
+      "command": [
+        "/usr/bin/clang++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/Users/mnwa/skills/performance-engineering/examples/cpp/test_kernels.cpp",
+        "-o",
+        "/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/test-sanitized"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_asan_ubsan_tests",
+      "status": "PASS",
+      "command": [
+        "/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/test-sanitized"
+      ],
+      "returncode": 0,
+      "stdout": "executed_byte_kernels=scalar dispatch neon \nguard_page=PASS\nlog_sample_max_abs_error=1.63482e-06\nlog_real_arithmetic_truncation_bound=1.66583e-06\nchecks=2917703\nresult=PASS\n",
+      "stderr": ""
+    },
+    {
+      "name": "cpp_leak_detection",
+      "status": "SKIP",
+      "reason": "LeakSanitizer unavailable on Darwin; leaks are not checked here"
+    },
+    {
+      "name": "rustc_version",
+      "status": "PASS",
+      "command": [
+        "/Users/mnwa/.cargo/bin/rustc",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "rustc 1.98.1 (48a229cea 2026-09-01)\n",
+      "stderr": ""
+    },
+    {
+      "name": "rust_debug_tests",
+      "status": "PASS",
+      "command": [
+        "/Users/mnwa/.cargo/bin/cargo",
+        "test",
+        "--offline",
+        "--manifest-path",
+        "/Users/mnwa/skills/performance-engineering/examples/rust/Cargo.toml",
+        "--all-targets"
+      ],
+      "returncode": 0,
+      "stdout": "\nrunning 7 tests\ntest tests::ordering_and_scan ... ok\ntest tests::reuse_and_explicit_wrapping ... ok\ntest tests::affine_rejects_truncation - should panic ... ok\ntest tests::log_sampled_error_not_a_proof ... ok\ntest tests::pool_fit_exhaustive_small_and_overflow_boundaries ... ok\ntest tests::histograms_preserve_collisions ... ok\ntest tests::byte_search_backends_boundaries_and_offsets ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n",
+      "stderr": "   Compiling performance-engineering-examples v0.1.0 (/Users/mnwa/skills/performance-engineering/examples/rust)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s\n     Running unittests src/lib.rs (/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/rust-target/debug/deps/performance_engineering_examples-688ebcb5ac3cea7b)\n"
+    },
+    {
+      "name": "rust_release_tests",
+      "status": "PASS",
+      "command": [
+        "/Users/mnwa/.cargo/bin/cargo",
+        "test",
+        "--offline",
+        "--manifest-path",
+        "/Users/mnwa/skills/performance-engineering/examples/rust/Cargo.toml",
+        "--all-targets",
+        "--release"
+      ],
+      "returncode": 0,
+      "stdout": "\nrunning 7 tests\ntest tests::ordering_and_scan ... ok\ntest tests::pool_fit_exhaustive_small_and_overflow_boundaries ... ok\ntest tests::reuse_and_explicit_wrapping ... ok\ntest tests::affine_rejects_truncation - should panic ... ok\ntest tests::log_sampled_error_not_a_proof ... ok\ntest tests::histograms_preserve_collisions ... ok\ntest tests::byte_search_backends_boundaries_and_offsets ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling performance-engineering-examples v0.1.0 (/Users/mnwa/skills/performance-engineering/examples/rust)\n    Finished `release` profile [optimized] target(s) in 0.20s\n     Running unittests src/lib.rs (/var/folders/zy/p5ckbg8n1nz5qfwzqlfsydnr0000gn/T/performance-engineering-4z7gry2u/rust-target/release/deps/performance_engineering_examples-e13deb2567875186)\n"
+    },
+    {
+      "name": "native_x86_64_sse2_avx2",
+      "status": "SKIP",
+      "reason": "not running on x86-64; inspect runtime CPU support for optional AVX2"
+    },
+    {
+      "name": "application_performance_benchmarks",
+      "status": "SKIP",
+      "reason": "no user application/corpus; correctness tests are not speed measurements"
+    },
+    {
+      "name": "exhaustive_u32_numeric_proof",
+      "status": "SKIP",
+      "reason": "logarithm tests sample inputs; full compiled floating-point bound is not certified"
+    }
+  ]
+}
