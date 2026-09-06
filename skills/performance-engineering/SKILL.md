@@ -1,5 +1,6 @@
 ---
 name: performance-engineering
+license: MIT
 description: Design, implement, profile, and optimize CPU software using measured bottlenecks, hardware-aware algorithms, bounded allocation, cache-efficient layouts, numerical contracts, and SIMD. Use for slow code, hot loops, allocation churn, memory growth, compute kernels, vectorization, performance reviews, or regression investigation. Includes Rust and C++ guidance.
 compatibility: >-
   Language-agnostic workflow. The bundled examples need a C++17 compiler; the Rust

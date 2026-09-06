@@ -73,3 +73,8 @@ does not replace memory, quality, correctness, or latency requirements.
 Sources were checked on **2026-09-05**. Exact library APIs and toolchain status
 must be rechecked against the consuming project's lockfile and build policy.
 See [references/sources.md](skills/performance-engineering/references/sources.md) for provenance.
+
+## License
+
+Licensed under the [MIT License](LICENSE). A copy is included in the installable
+skill folder as [LICENSE](skills/performance-engineering/LICENSE).
