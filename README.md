@@ -15,13 +15,13 @@ Install it with the [skills CLI](https://skills.sh/docs/cli):
 npx skills add Mnwa/performance-engineering
 ```
 
-For a manual installation, copy the complete `performance-engineering` folder
+For a manual installation, copy the complete `skills/performance-engineering` folder
 into the skill directory recognized by your agent runtime, keeping the directory
 name unchanged because it matches the `name` in `SKILL.md`.
 
 ## Use
 
-The entry point is [SKILL.md](SKILL.md). This package does not install itself or
+The entry point is [SKILL.md](skills/performance-engineering/SKILL.md). This package does not install itself or
 change an agent's configuration. A runtime without automatic skill discovery can
 read `SKILL.md` explicitly and follow its relative reference links.
 
@@ -39,6 +39,8 @@ correct baseline before specializing it.
 
 ## Contents
 
+The self-contained skill bundle lives in `skills/performance-engineering/`:
+
 - `SKILL.md`: compact entry point and required optimization workflow.
 - `references/`: focused allocation, memory, computation, SIMD, algorithm,
   measurement, parallelism, Rust, and source guides.
@@ -47,13 +49,21 @@ correct baseline before specializing it.
 - `templates/`: reproducible optimization report.
 - `validation/`: what was actually tested when this package was assembled.
 - `agents/`, `assets/`: packaging metadata and icon for skill directories.
-- `MANIFEST.sha256`: SHA-256 of every packaged file except itself and
-  `validation/report.json`, which `scripts/verify.py` regenerates. Check it with
-  `shasum -a 256 -c MANIFEST.sha256`.
 
-Read [examples/README.md](examples/README.md) for build commands and the benchmark
-input format. Run `python3 scripts/verify.py` from this folder to check local
+The repository-root `MANIFEST.sha256` records SHA-256 of every packaged file
+except itself and `skills/performance-engineering/validation/report.json`, which
+the verifier regenerates. Check it from the repository root with
+`shasum -a 256 -c MANIFEST.sha256`.
+
+Read [examples/README.md](skills/performance-engineering/examples/README.md) for build commands and the benchmark
+input format. Run `python3 skills/performance-engineering/scripts/verify.py` from the repository root to check local
 coverage; unavailable compilers and targets are reported, not treated as passes.
+
+Validate publishing from the repository root without creating a release:
+
+```bash
+gh skill publish --dry-run
+```
 
 The examples are not replacements for a tuned standard library, a complete
 allocator, or a validated vector-math library. No speedup is claimed without
@@ -62,4 +72,4 @@ does not replace memory, quality, correctness, or latency requirements.
 
 Sources were checked on **2026-09-05**. Exact library APIs and toolchain status
 must be rechecked against the consuming project's lockfile and build policy.
-See [references/sources.md](references/sources.md) for provenance.
+See [references/sources.md](skills/performance-engineering/references/sources.md) for provenance.

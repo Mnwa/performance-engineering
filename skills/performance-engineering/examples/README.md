@@ -5,6 +5,9 @@ allocation reuse, and testing. They are not claims to outperform `memchr`, a
 standard library, libm, or an optimized numeric library. Review
 [the validation record](../validation/README.md) for actual target coverage.
 
+Run the commands below from the skill directory (`skills/performance-engineering/`
+in this repository).
+
 ## C++17
 
 [kernels.hpp](cpp/kernels.hpp) contains scalar byte search, SSE2/AVX2 byte search

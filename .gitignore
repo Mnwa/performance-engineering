@@ -1,5 +1,5 @@
 .DS_Store
 __pycache__/
 *.pyc
-/examples/rust/target/
-/examples/rust/Cargo.lock
+/skills/performance-engineering/examples/rust/target/
+/skills/performance-engineering/examples/rust/Cargo.lock
