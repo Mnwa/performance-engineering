@@ -1,11 +1,12 @@
 # Sources and provenance
 
-Checked **2026-09-05**. Source IDs used throughout the skill refer to the entries
-below. Exact instruction behavior, crate APIs, and compiler options must be
+Original low-level sources checked **2026-09-05**. New systems, prevention, and
+supporting operational sources checked **2026-09-06**. Source IDs used throughout
+the skill refer to the entries below. Exact instruction behavior, crate APIs, and compiler options must be
 verified against the target and locked version used by a consuming project.
 
-This is an original operational synthesis, not a reproduction of Algorithmica's
-book. The examples, pool-fit predicate proof, histogram-score error-budget
+This is an original operational synthesis, not a reproduction of the cited
+books or author materials. The examples, pool-fit predicate proof, histogram-score error-budget
 application, suggested regression policy, report template, and verification
 scripts were written for this package. Mathematical derivations are identified
 as such; historical timings and speedup claims from sources are not transferred
@@ -93,6 +94,62 @@ Author: Sergey Slotin. Work: *Algorithms for Modern Hardware*.
 | N02 | [Arm optimized routines](https://github.com/ARM-software/optimized-routines) | Maintained math/string routines and numeric implementation references |
 | N03 | [libdivide](https://libdivide.com/) | Runtime-invariant integer division transformations |
 
+## Systems Performance and public methodology
+
+Brendan Gregg, *Systems Performance: Enterprise and the Cloud*, second edition
+(Addison-Wesley, 2020). The book's author page and public methodology articles
+were consulted; the full book text was not accessed. The new guides translate
+verified methods into original agent workflows, not chapter summaries or page
+quotations. Historical tool examples still require target-version verification.
+
+| ID | Primary source | Used for |
+|---|---|---|
+| S01 | [Author's second-edition book page](https://www.brendangregg.com/systems-performance-2nd-edition-book.html) | Book identity, scope, resource and cloud coverage |
+| S02 | [Performance analysis methodology](https://www.brendangregg.com/methodology.html) | Problem statement, workload characterization, method selection |
+| S03 | [The USE Method](https://www.brendangregg.com/usemethod.html) | Utilization, saturation, errors and resource inventory |
+| S04 | [Thread State Analysis](https://www.brendangregg.com/tsamethod.html) | Execution, runnable delay, waiting and idle distinctions |
+| S05 | [Off-CPU Analysis](https://www.brendangregg.com/offcpuanalysis.html) | Complementing CPU profiles with wait analysis |
+| S06 | [Active Benchmarking](https://www.brendangregg.com/activebenchmarking.html) | Observing what a benchmark and generator actually exercise |
+| S07 | [Flame Graphs](https://www.brendangregg.com/flamegraphs.html) | Aggregated stacks, sample meaning, and non-chronological layout |
+
+## Fast by Default and prevention-first engineering
+
+Den Odell, *Fast by Default: Practical Performance Engineering* (Manning, MEAP).
+On **2026-09-06**, the publisher listed 8 of 20 chapters available, a July 2026
+update, and an estimated Spring 2027 publication. This is not a claim that the
+completed book was available or read. The full book text was not accessed.
+
+The public model and publisher description support the prevention-first themes;
+the detailed budgets, CI policy, load plans, worked examples, and evaluation
+rubrics are this skill's original synthesis. The publisher names System Paths,
+but unavailable taxonomy, chapter details, quotations, and page numbers must
+not be invented. Recheck the publisher before relying on this dated status.
+
+| ID | Primary source | Used for |
+|---|---|---|
+| F01 | [Manning: Fast by Default](https://www.manning.com/books/fast-by-default) | Book identity, early-access status, stated scope and evidence boundary |
+| F02 | [Author's public Fast by Default model](https://fastbydefault.com/) | Principles, cycle, practical steps, budgets and ongoing ownership |
+| F03 | [Author's companion code repository](https://github.com/denodell/fast-by-default) | Companion resource provenance; no code copied and no full-chapter access implied |
+
+## Supporting systems and service documentation
+
+| ID | Primary source | Used for |
+|---|---|---|
+| O01 | [Linux cgroup v2](https://docs.kernel.org/admin-guide/cgroup-v2.html) | Hierarchical CPU/memory controls and accounting |
+| O02 | [Linux pressure stall information](https://docs.kernel.org/accounting/psi.html) | Pressure measurements and scope |
+| O03 | [Linux proc filesystem](https://docs.kernel.org/filesystems/proc.html) | Process/system memory accounting and observation boundaries |
+| O04 | [Prometheus: histograms and summaries](https://prometheus.io/docs/practices/histograms/) | Quantile aggregation and histogram accuracy limits |
+| O05 | [Sysstat project documentation](https://sysstat.github.io/) | Monitoring tool scope and upstream documentation |
+| O06 | [Google SRE: Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/) | User-facing latency, traffic, errors, saturation |
+| O07 | [Grafana k6: open and closed models](https://grafana.com/docs/k6/latest/using-k6/scenarios/concepts/open-vs-closed/) | Arrival-model feedback and coordinated omission |
+| O08 | [Google SRE: Handling Overload](https://sre.google/sre-book/handling-overload/) | Useful capacity, queues, admission and overload behavior |
+| O09 | [Sysstat iostat manual](https://man7.org/linux/man-pages/man1/iostat.1.html) | Command options, I/O metrics, and parallel-device utilization caveat |
+| O10 | [Sysstat pidstat manual](https://man7.org/linux/man-pages/man1/pidstat.1.html) | Process-scoped CPU, memory, I/O and scheduling reports |
+| O11 | [Sysstat mpstat manual](https://man7.org/linux/man-pages/man1/mpstat.1.html) | Per-CPU reports and bounded interval/count syntax |
+| T05 | [Linux perf-record manual](https://man7.org/linux/man-pages/man1/perf-record.1.html) | Sampling frequency, call graphs and attach scope |
+| Q01 | [MIT, Urban Operations Research, section 4.4](https://web.mit.edu/urban_or_book/www/book/chapter4/4.4.html) | Little's law, matching boundaries, admitted flow and long-run averages |
+| Q02 | [MIT, Urban Operations Research, section 4.6.1](https://web.mit.edu/urban_or_book/www/book/chapter4/4.6.1.html) | M/M/1 assumptions and mean residence-time model |
+
 ## Evidence boundaries
 
 The bootstrap utility implements a clearly specified engineering decision rule;
@@ -108,3 +165,9 @@ reference explains the additional proof needed for threshold-sensitive use.
 The package's [validation record](../validation/README.md) is the source for what
 was actually executed. Upstream support for an ISA is not evidence that this
 package's implementation was executed on that ISA.
+
+The new numerical scenarios are hypothetical derivations, not measured case
+studies. The `0.95` gate, evidence ledger, suggested CI tiers, safety policies,
+and evaluation rubrics are package recommendations, not numerical prescriptions
+attributed to Gregg or Odell. Agent evaluation scenarios remain specifications
+until responses are actually run and assessed.
