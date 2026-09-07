@@ -14,6 +14,11 @@ or executing. A full local repository clone was unavailable, so the complete
 Changed-document links were checked against the retrieved upstream file inventory
 plus the new files, not by manufacturing placeholder files for missing content.
 
+This x86-64/Linux note is separate from the generated [report.json](report.json),
+which records one host per run and may describe a different host. Default-output
+verifier runs overwrite that JSON; they do not merge platform coverage. See the
+[validation record](README.md) for the committed report's platform and limitations.
+
 ## Executed checks
 
 | Check | Result and scope |

@@ -72,10 +72,12 @@ Measure allocations and ownership transfers at the public API boundary.
 | `std::simd` | Portable vector API where nightly is permitted | Toolchain pin, feature gate, supported lane counts and operations |
 | `std::arch` | A measured gap requiring target intrinsics | CPU/OS feature detection, safety proofs, fallback and target tests |
 
-As checked on 2026-09-05, the official `std::simd` documentation still marks it
+As checked on 2026-09-07, the official `std::simd` documentation still marks it
 nightly-only under `portable_simd`. Recheck this before changing a project's
 stable-toolchain requirement. Portable semantics do not promise a single native
 instruction or the widest available register. [R04]
+See the [re-verification checklist](sources.md#time-sensitive-claims-to-re-verify)
+for this check and other version-sensitive guidance.
 
 `fearless_simd` documents a `Level`/dispatch mechanism and generic SIMD kernels;
 `wide` presents fixed-width types; `pulp` documents runtime dispatch through an

@@ -28,7 +28,7 @@ spawner shape.
 
 Estimate a conservative memory budget:
 
-```
+```text
 peak_live ≈ shared_read_only + queued_input + queued_output
           + active_workers * per_worker_scratch + merge_storage
           + allocator_slack + safety_margin

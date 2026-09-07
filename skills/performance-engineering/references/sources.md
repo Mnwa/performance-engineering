@@ -12,9 +12,40 @@ scripts were written for this package. Mathematical derivations are identified
 as such; historical timings and speedup claims from sources are not transferred
 to this package. Refer to upstream sources for their own authorship and licenses.
 
+Source IDs establish provenance, not self-contained verification from this
+package. Entries below include public primary sources that readers can inspect,
+but source texts are not bundled and an ID alone does not prove that a claim
+matches its source. The [verifier](../scripts/verify.py) checks local links and
+whether reference IDs are defined; it does not validate external source contents,
+availability, or freshness. The workflows and policies remain the original
+synthesis described above.
+
+## Time-sensitive claims to re-verify
+
+Before each release, and after a relevant toolchain, dependency, platform, or
+publisher-status change, review this checklist against the primary sources.
+This is a manual maintenance surface, not an automated freshness guarantee.
+Add new dated or version-sensitive claims here and update affected text and
+check dates only after verification; do not advance dates merely to clear a review.
+
+| Claim or guidance | Where to recheck | Recorded check and refresh trigger |
+|---|---|---|
+| `std::simd` nightly-only / `portable_simd` status | [Rust SIMD selection](rust.md#choose-a-simd-layer-deliberately); R04 | Official documentation rechecked 2026-09-07; recheck before changing the stable-toolchain requirement. This is a documentation check, not a compilation result. |
+| *Fast by Default* early-access chapter count and estimated publication | [Publisher-status snapshot](#fast-by-default-and-prevention-first-engineering), [prevention guide](fast-by-default.md); F01, F02 | Retained 2026-09-06 snapshot; recheck before describing current availability or attributing new material. Full book access must not be inferred. |
+| SIMD crate APIs, target support, and compiler integration | [Rust guide](rust.md), [SIMD guide](simd.md); R03, R06, R07, R08, R09, T01, T03, T04, D01, D02 | Original source review 2026-09-05; verify the consuming project's locked versions, features, target, and generated code when any of them changes. Live `/latest/` docs are not a version pin. |
+| Allocator behavior, OS interfaces, and diagnostic command options | [Allocation guide](allocations.md), [OS diagnostics](operating-system-diagnostics.md); M01, M02, M03, M04, M05, O01, O02, O03, O05, O09, O10, O11, T02, T05 | Original source reviews 2026-09-05/2026-09-06; recheck against the deployed OS and installed tool versions before applying target-specific guidance. |
+
+Dates in validation notes and `report.json` describe historical executions, not
+current coverage for every host or release. Preserve those dates and record fresh
+runs separately rather than relabeling old evidence.
+
 ## Conceptual foundation: Algorithmica
 
 Author: Sergey Slotin. Work: *Algorithms for Modern Hardware*.
+
+A25 is listed under [Measurement and compilers](#measurement-and-compilers):
+it identifies the NERSC Roofline source, not an Algorithmica chapter. Source IDs
+are stable provenance keys, not a reading sequence.
 
 | ID | Topic and primary source |
 |---|---|
